@@ -60,7 +60,7 @@ async function main() {
         gifName
     ], 'gif');
 
-    await uploadGif("urn:slabs:bytelake:cosmic-potato", gifName);
+    await uploadGif(process.env.DESTINATION_LAKE, gifName);
 
     console.log('GIF generated successfully');
 }
