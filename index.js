@@ -43,16 +43,16 @@ async function main() {
     const gifName = 'output.gif';
 
     await spawnFFmpeg([
-        '-ss', '00:15:00',
-        '-t', '15',
+        '-ss', process.env.GIF_START,
+        '-t', process.env.GIF_DURATION,
         '-i', 'video.mp4',
         '-vf', 'fps=12,scale=1280:-1:flags=lanczos,palettegen',
         'palette.png'
     ], 'palette');
 
     await spawnFFmpeg([
-        '-ss', '00:15:00',
-        '-t', '15',
+        '-ss', process.env.GIF_START,
+        '-t', process.env.GIF_DURATION,
         '-i', 'video.mp4',
         '-i', 'palette.png',
         '-filter_complex',
